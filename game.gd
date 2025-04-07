@@ -283,4 +283,3 @@ func match_border(neighbors: Array[bool]) -> Vector2i:
     if check(neighbors, border.constraints):
       return border.coord
   return Vector2i(1, 0)
-

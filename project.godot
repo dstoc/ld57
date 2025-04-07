@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="ld57"
-run/main_scene="uid://20xifwybxcat"
+run/main_scene="uid://bslx1hk56ecyk"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+State="*res://state.gd"
 
 [debug]
 
@@ -23,6 +27,16 @@ gdscript/warnings/unsafe_method_access=1
 gdscript/warnings/unsafe_cast=1
 gdscript/warnings/unsafe_call_argument=1
 
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/scale_mode="integer"
+
+[physics]
+
+common/physics_ticks_per_second=120
+
 [rendering]
 
 renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

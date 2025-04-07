@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=4 uid="uid://cuhtatk2roo6v"]
+
+[ext_resource type="Script" uid="uid://xryna70r8irh" path="res://flag.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://d3gga26flqc70" path="res://tiles.png" id="2"]
+[ext_resource type="AudioStream" uid="uid://cv0s7o82pfs8d" path="res://hole.mp3" id="3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_amn8n"]
+size = Vector2(24, 5)
+
+[node name="Flag" type="Node2D"]
+script = ExtResource("1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2")
+hframes = 17
+frame = 15
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 12.5)
+shape = SubResource("RectangleShape2D_amn8n")
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3")
+bus = &"Effects"

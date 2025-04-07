@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=4 uid="uid://x6atnv65cec0"]
+
+[ext_resource type="Texture2D" uid="uid://d3gga26flqc70" path="res://tiles.png" id="1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_on5en"]
+size = Vector2(12, 24)
+
+[node name="Tee" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1")
+hframes = 17
+frame = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_on5en")

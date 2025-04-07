@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://20xifwybxcat"]
+
+[ext_resource type="Script" uid="uid://d111d0m4n5lf8" path="res://game.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://d3gga26flqc70" path="res://tiles.png" id="2"]
+[ext_resource type="PackedScene" uid="uid://x6atnv65cec0" path="res://tee.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://cuhtatk2roo6v" path="res://flag.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://bnchthecmjvvv" path="res://ball.tscn" id="5"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ppyta"]
+texture = ExtResource("2")
+texture_region_size = Vector2i(32, 32)
+use_texture_padding = false
+1:0/0 = 0
+0:0/0 = 0
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-21, -23, 16.5, -23, 16.5, -14, 2, -12, -7, 0, 2, 12, 16.5, 14, 16.5, 24, -21, 24)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(16.5, 14, 16.5, 22, -16.5, 22, -16.5, 14)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(21, -23, -16.5, -23, -16.5, -14, -2, -12, 7, 0, -2, 12, -16.5, 14, -16.5, 24, 21, 24)
+5:0/0 = 0
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16.5, -14, -16.5, -22, 16.5, -22, 16.5, -14)
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-23.5, -24, -23.5, 16.5, -14, 16.5, -14, -2.5, -11, -11, -3, -14, 16.5, -14, 16.5, -24)
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, 23.5, 16.5, 23.5, 16.5, 14, -2.5, 14, -11, 11, -14, 3, -14, -16.5, -24, -16.5)
+9:0/0 = 0
+9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(24, -23.5, -16.5, -23.5, -16.5, -14, 2.5, -14, 11, -11, 14, -3, 14, 16.5, 24, 16.5)
+10:0/0 = 0
+10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(23.5, 24, 23.5, -16.5, 14, -16.5, 14, 2.5, 11, 11, 3, 14, -16.5, 14, -16.5, 24)
+11:0/0 = 0
+11:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(14, -16.5, 22, -16.5, 22, 16.5, 14, 16.5)
+12:0/0 = 0
+12:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14, 16.5, -22, 16.5, -22, -16.5, -14, -16.5)
+13:0/0 = 0
+13:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16.5, -14, -16.5, -20.5, 16.5, -20.5, 16.5, -14)
+13:0/0/physics_layer_0/polygon_1/points = PackedVector2Array(-16.5, 14, 16.5, 14, 16.5, 21, -16.5, 21)
+14:0/0 = 0
+14:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-17, -17, 17, -17, 17, 17, -17, 17)
+15:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ykrsh"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_ppyta")
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("camera")]
+texture_filter = 1
+script = ExtResource("1")
+camera = NodePath("Camera2D")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_ykrsh")
+
+[node name="Tee" parent="." instance=ExtResource("3")]
+
+[node name="Flag" parent="." instance=ExtResource("4")]
+
+[node name="Ball" parent="." instance=ExtResource("5")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-250, 50)
+zoom = Vector2(2, 2)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 1095.0
+offset_bottom = 602.0
+text = "HELLO?"

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=4 uid="uid://bqnobo03tsb8d"]
+
+[ext_resource type="Script" uid="uid://37bwo8llagxv" path="res://item.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://d4g7lo84usj0p" path="res://coin.png" id="2"]
+[ext_resource type="AudioStream" uid="uid://coiawo8sy8y5e" path="res://coin.wav" id="3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ttk8k"]
+radius = 7.0
+
+[node name="Item" type="Node2D"]
+script = ExtResource("1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ttk8k")
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3")
+volume_db = -2.6489999294281006
+bus = &"Effects"
